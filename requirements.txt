@@ -3,3 +3,5 @@ uvicorn
 diffusers
 transformers
 torch
+python-dotenv
+
