@@ -3,5 +3,5 @@ uvicorn
 diffusers
 transformers
 torch
+Pillow
 python-dotenv
-

@@ -1,4 +1,4 @@
-from diffusers import BitsAndBytesConfig, StableDiffusion3Pipeline, SD3Transformer2DModel
+from diffusers import  StableDiffusion3Pipeline, SD3Transformer2DModel
 import torch
 from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.security import APIKeyHeader
@@ -52,11 +52,11 @@ print("Loading model...")
 try:
     # Load the Transformer model with quantization
     model_nf4 = SD3Transformer2DModel.from_pretrained(
-        model_id,
-        subfolder="transformer",
-        quantization_config=nf4_config,
-        torch_dtype=torch.float16
+    model_id,
+    subfolder="transformer",
+    torch_dtype=torch.float32  # safer for CPU
     )
+
 
     # Load Stable Diffusion pipeline
     pipeline = StableDiffusion3Pipeline.from_pretrained(
